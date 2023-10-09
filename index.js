@@ -22,16 +22,6 @@ function each(array, func) {
   return acc;
   }
   
-  function reduce(array, f, acc) {
-  if (acc === undefined) {
-   acc = array[0];
-   array = array.slice(1);
-  }
-  each(array, function (element, i) {
-   acc = f(acc, element, i);
-  });
-  return acc;
-  }
   function generateID() {
     var count = 0;
     return function () {
