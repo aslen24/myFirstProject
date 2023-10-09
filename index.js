@@ -42,6 +42,7 @@ function each(array, func) {
   var id = generateID();
   function prodect(name,price,quantity){
     return{
+      id:id(),
       nameP:name,
       priceP:price,
       quantityP:quantity,
@@ -59,24 +60,9 @@ function each(array, func) {
     sortByQuantity:sortByQuantity
     }
     }
-    /*var add=function(p){
-      var j=0
-          each(this.list,function(e,i){
-            if(e.nameP===p.nameP){
-              j=i
-              
-            }})
-            if(j>0){
-              this.list[j].quantityP+=p.quantityP
-            }
-            
-            else{
-              p['id']=id()
-        this.list.push(p)}
-            }*/
+  
     
     var add=function(p){
-      p['id']=id()
       this.list.push(p)
     }
       var removeProdect=function(id){
@@ -122,7 +108,7 @@ if(u===user&&p===passWord){
   $('.inputPage').hide()
   $('.storePage').show()
 
-}
+}else alert("please inter right user")
 }) 
 
 
@@ -153,12 +139,14 @@ $('.addP2').click(function(){
   var pn=$('.nameP').val()
   var pp=$('.priceP').val()
   var pq=$('.QuantiyP').val()
+  if(pn===""|| pp===""  || pq==="" ){alert("please fill in the form")}
+  else  {
   var p=prodect(pn,Number.parseInt(pp),Number.parseInt(pq))
   stock.add(p)
   displays(stock)
   $('.storePage').show()
   $('.addPage').hide()
-
+  }
 
 })
 
